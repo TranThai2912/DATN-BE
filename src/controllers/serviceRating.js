@@ -17,6 +17,7 @@ export const createServeRating = async (req, res) => {
 }
 
 export const listServeRating = async (req, res) => {
+    req.body.slug = slugify(req.body.name)
     try {
         const serviceRating = await ServiceRating.find({}).exec();
         res.json(serviceRating);
@@ -28,6 +29,7 @@ export const listServeRating = async (req, res) => {
 }
 
 export const removeServeRating = async (req, res) => {
+    req.body.slug = slugify(req.body.name)
     try {
         const serviceRating = await ServiceRating.findOneAndDelete({ _id: req.params.id }).exec();
         res.json(serviceRating);
@@ -55,6 +57,7 @@ export const updateServeRating = async (req, res) => {
 }
 
 export const readServeRating = async (req, res) => {
+    req.body.slug = slugify(req.body.name)
     try {
         const serviceRating = await ServiceRating.findOne({ _id: req.params.id }).exec();
         res.json(serviceRating);
