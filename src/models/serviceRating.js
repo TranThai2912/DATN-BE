@@ -22,7 +22,7 @@ const serviceRating = new Schema({
     },
     serviceId: {
         type: ObjectId,
-        ref: "Store",
+        ref: "Service",
     },
 
 }, { timestamps: true });
